@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Slang2Real</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background: #efb71d;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      font-size: 30px;
+    }
+
+    .center-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 25px;
+      width: 100%;
+      max-width: 325px;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    #definition {
+      font-size: 18px;
+      margin-top: 20px;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="center-container">
+    <h1>Slang2Real</h1>
+    <input type="text" id="slangInput" placeholder="Type a slang word like 'rizz' or 'sybau'...">
+    <div id="definition"></div>
+  <script>
+    const slangDict = {
+      "rizz": "Charisma or charm. Usually about flirting.",
+      "mid": "Mediocre or average. Not good, not bad.",
+      "sus": "Suspicious or shady.",
+      "slay": "To do something really well, with style or confidence.",
+      "it's giving": "It reminds me of or feels like… (used for vibes).",
+      "cap": "A lie or false statement.",
+      "no cap": "For real, not lying.",
+      "gyatt": "Slang reaction to someone’s physical appearance / butt (often exaggerated).",
+      "sybau": "Shut your b**** a** up (used insultingly, contains strong language)",
+      "npc": "Non-player character; someone who acts robotically or without originality.",
+      "ratio": "A reply that gets more likes than the original post.",
+      "goat": "Greatest Of All Time.",
+      "fire": "Cool or amazing - Something impressive",
+      "lowkey": "Secretly or subtly - Not wanting to show openly",
+      "highkey": "Openly or obviously - Not hiding something",
+      "op": "Overpowered or original poster depending on context.",
+      "bussin": "Tastes really good (usually food).",
+      "bet": "Okay, sure, or deal.",
+      "lit": "Exciting or fun.",
+      "salty": "Being upset or bitter about something.",
+      "bruh": "Expression of disbelief or disappointment.",
+      "finna": "Fixing to / about to do something.",
+      "yeet": "To throw something forcefully (or just excitement).",
+      "drip": "Cool fashion or outfit.",
+      "vibe check": "A test to see if someone's energy or mood fits the situation.",
+      "fine shyt": "An attractive person.",
+      "clocking": "Understanding.",
+      "ts": "This / This sh*t.",
+      "pro": "Piss me off / Put me on.",
+      "sm": "So much."
+    };
+
+    const filterSwears = (definition) => {
+      return definition.replace(/b\w{3,4} a\*\* up|bitch|a\*\*|shit/gi, '****');
+    };
+
+    document.getElementById('slangInput').addEventListener('input', function () {
+      const word = this.value.trim().toLowerCase();
+      const def = slangDict[word];
+      document.getElementById('definition').textContent = def ? `🧠 ${filterSwears(def)}` : '';
+    });
+  </script>
+</body>
+</html>
